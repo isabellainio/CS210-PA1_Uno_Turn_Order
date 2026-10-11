@@ -1,8 +1,18 @@
-//
-// Created by Isabella Inio on 10/6/26.
-//
+#pragma once
 
-#ifndef SEP14AND17_CARD_H
-#define SEP14AND17_CARD_H
+#include <ostream>
+#include <string>
 
-#endif //SEP14AND17_CARD_H
+class Card {
+public:
+    Card(const std::string& color, const std::string& rank)
+        : color_(color), rank_(rank) {}
+
+    friend std::ostream& operator<<(std::ostream& out, const Card& card) {
+        return out << card.color_ << " " << card.rank_;
+    }
+
+private:
+    std::string color_;
+    std::string rank_;
+};
